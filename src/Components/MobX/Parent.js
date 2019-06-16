@@ -1,12 +1,17 @@
 import React from "react";
 import Child from "./Child";
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
+import Store from './MobxStore'
 
+@observer
 function Parent() {
+    @observable store = new Store();
   return (
     <div className="Parent">
       <div>
-        <span>Price: </span>
-        <div className="in-container">
+        <span>Price: </span><input type="number"/>
+        {/* <div className="in-container">
           <p>$</p>
           <input
             size="4"
@@ -30,7 +35,7 @@ function Parent() {
             className="mobx-in-two"
             type="number"
           />
-        </div>
+        </div> */}
       </div>
       <Child />
     </div>
